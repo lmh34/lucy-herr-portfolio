@@ -1,11 +1,11 @@
-title: John Doe # your name (or website title) here
-logo: "/images/logo.png?raw=true" # your photo (or logo) here
+title: Lucy Herr # your name (or website title) here
+logo: "/images/school_logos.png?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  First description 
+  Data scientist completing an M.S. in Information & Data Science from U.C. Berkeley (graduating August 2024) with an M.Ed. in Learning Sciences from the University of Washington (2019). Previously at Katch Data and the University of Washington Center for Evaluation and Research in STEM Equity.
   <br><br>
-  Second description 
+  As a data scientist, I combine a robust technical and quantitative skill base with the communication and research skills of my education and psychology background to execute innovative analytical solutions and translate them to application. I am actively seeking a new role in an innovative, growing, data-mature company where I can join a strong team, solve challenging problems, and communicate insights across audiences.
   <br><br>
-  <a href="https://www.linkedin.com/in/example/">View My LinkedIn Profile</a> 
+  <a href="https://www.linkedin.com/in/lucy-m-herr">View My LinkedIn Profile</a><br>
   
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
