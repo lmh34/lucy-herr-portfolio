@@ -69,7 +69,7 @@ Does a paid Google SEO ad campaign with wellness and lifestyle-oriented messagin
 ---
 [Data Engineering: Optimizing Delivery Routing with Neo4j and NoSQL Databases ](/pdf/205_presentation.pdf)
 <br>
-<img src="images/205_locker_map?raw=true"/>
+<img src="images/205_locker_map.png?raw=true"/>
 <br><br><br>
 
 <!-- Remove above link if you don't want to attibute -->
