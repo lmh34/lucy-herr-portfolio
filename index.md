@@ -67,9 +67,10 @@ Does a paid Google SEO ad campaign with wellness and lifestyle-oriented messagin
 <br><br><br>
 
 ---
-[Data Engineering: Optimizing Delivery Routing with Neo4j and NoSQL Databases ](/pdf/205_presentation.pdf)
-<br>
+[Data Engineering: Optimizing Delivery Routing with Neo4j and NoSQL Databases ](/pdf/W205_final_presentation.pdf)
+<br><br>
 <img src="images/205_locker_map.png?raw=true"/>
+<br><br>This data engineering case study addressed integrating new technologies into a client company’s platform for expanding service locations, meal delivery, and customer base in the Bay Area. We used graph algorithms with Neo4J, MongoDB, and Redis to determine optimal delivery locations and routes and architect flexible, scalable database solutions. 
 <br><br><br>
 
 <!-- Remove above link if you don't want to attibute -->
