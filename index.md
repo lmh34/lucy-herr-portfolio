@@ -12,9 +12,11 @@
 <br>
 The devastating impacts of the fentanyl epidemic have skyrocketed over recent years: in California alone, this potent synthetic opioid was responsible for over 10,000 deaths last year. In the ongoing battle to prevent fatal overdoses, proactive resource mobilization makes the difference between life and death.
 <br>
+<br> 
 Sentanyl is the first publicly available tool for localized fentanyl overdose forecasting, generating estimates within +/-1 death per 100K population on average. Public health stakeholders can use Sentanyl’s dashboard to leverage these novel insights, optimize future resource allocation, and, ultimately, save lives.
 <br> 
 [Project Deck](/pdf/capstone_final_presentation.pdf)
+<br> 
 <a href="https://github.com/lmh34/ucb_mids_capstone_spr24">Project GitHub Repo</a>
 <br>
 <br>
@@ -38,6 +40,7 @@ Sentanyl is the first publicly available tool for localized fentanyl overdose fo
 <br>
 <br>
 Can flight delays be predicted in advance of their scheduled departure times? This Machine Learning at Scale project used Spark, Databricks, and 5 years of U.S. flight and weather data to predict flight delays of at least 15 minutes at 2 hours in advance of scheduled departure.
+<br>
 <br>
 <a href="https://github.com/lmh34/team_5_3">Project GitHub Repo</a>
 <br>
