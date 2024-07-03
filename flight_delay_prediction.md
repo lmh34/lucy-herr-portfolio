@@ -54,7 +54,6 @@ We also noted the variation in average delay length by carrier, which subsequent
 <br>
 <br>
 #### Feature Engineering
-<br>
 Experimentation with engineered features proved a critical part of improving model performance. The table below illustrates some of our key engineered predictors related to factors in delays identified in air transportation research, such as severe weather events and increased airport congestion. 
 <br>
 <img src="images/261_fe_table.png?raw=true"/>
@@ -71,14 +70,12 @@ Given the high dimensionality of the data and the imperative to guard compute ef
 <br>
 <br>
 ### Modeling Pipeline
-<br>
 The figure below provides an overview of our modeling pipeline. First, we devised a simple, intuitive baseline model computed as the mean delay at the flight’s origin airport between 4 and 2 hours prior to takeoff. We then built, trained, and evaluated logistic regression, random forest, and multilayer perceptron (MLP) models for comparison. 
 <br>
 <img src="images/261_model_pipeline_only.png?raw=true"/>
 <br>
 <br>
 #### Time Series Splits & Cross Validation
-<br>
 Preventing data leakage, or information from an evaluation dataset "leaking" into the training process, was a major challenge in designing our pipeline. By taking pains to exclude future information from predictions made for earlier time points, our objective was to prevent misleading or inflated performances in our models. We designed our pipeline with layers of evaluation data, including a cross-validation design suitable for time series data, to minimize potential data leakage.
 <br>
 1. The full, 5-year data was split into a training set (2015-2018) and test/holdout set (2019) to be used once for evaluation after finetuning the models.<br>
@@ -95,7 +92,6 @@ The final image below integrates all stages of this approach:
 <br>
 <br>
 #### Scaling Considerations
-<br>
 Given the size of the data and our limited compute budget for the project, we also carefully tracked the efficiency of our models via their runtimes and configurations. Notably, the random forest model scaled the most effectively as we iterated from smaller subsets of training data to the full 4-year scope. 
 <br>
 <img src="images/261_config_runtime.png?raw=true"/>
@@ -104,13 +100,15 @@ Given the size of the data and our limited compute budget for the project, we al
 #### Modeling Details: Multilayer Perceptron
 <br>
 To develop the multilayer perceptron model, we selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, we experimented with the four distinct network architectures detailed in the table below.
-<br>
-| MLP Model | Architecture | Avg. CV Time |  Avg. CV Train Recall  |  Avg. CV Train Recall  | Avg. CV Train Recall |  Avg. CV Train Recall  |
-| ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |------------ |
-| 1 | 20 - 8 - Relu - 2 Softmax  | 166.02s  | 0.723 |  0.358 | 0.615 |  0.578|
-| 2 | 20 - 4 - Relu - 2 Softmax   | 196.53s  | 0.723 | 0.358 | 0.615 | 0.566 |
-| 3 | 20 - 4 - Relu - 4 - Relu - 2 Softmax  |  244.06s | 0.711 | 0.598 | 0.617| 0.599 |
-| 4 | 20 - 16 - Relu - 8 - Relu - 4 - Relu - 2 Softmax  | 296.09s | 0.723 |  0.356 | 0.630 |0.582 |
+
+
+| MLP Model | Architecture | Avg. CV Time | Avg. CV Train Recall | Avg. CV Train Precision |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| 1 | 20 - 8 - Relu - 2 Softmax  | 166.02s  | 0.723 |  0.358 |
+| 2 | 20 - 4 - Relu - 2 Softmax   | 196.53s  | 0.723 | 0.358 |
+| 3 | 20 - 4 - Relu - 4 - Relu - 2 Softmax  |  244.06s | 0.711 | 0.598 |
+| 4 | 20 - 16 - Relu - 8 - Relu - 4 - Relu - 2 Softmax  | 296.09s | 0.723 |
+
 <br> 
 <br> 
 Ultimately, modifications to the network architectures translated only to minimal differences in average precision and recall values across the cross-validated sets. Architecture 3 (20 - 4 - Relu - 4 - Relu - 2 Softmax) was selected as our final MLP model on the basis of its marginally lower disparities between precision and recall for the validation sets against the train sets in cross validation as well as its lighter compute time compared to the more complex Architecture 4. 
