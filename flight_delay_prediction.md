@@ -124,7 +124,7 @@ To evaluate model performance, we chose to measure precision at a threshold of 8
 <br>
 <br>
 #### Results
-<img src="images/261_model_eval.png" width="200"/>
+<img src="images/261_model_eval.png" width="700"/>
 <br>
 With a precision value of 27.5% at 80% recall, the random forest model slightly outperformed the logistic regression, MLP, and baseline models. In other words, this performance metric means that (1) given that we are correctly classifying at least 80% of true delays overall, (2) we are also correctly classifying 27.5% of the true delays as delays (and conversely, 72.5% of non-delays as delays). 
 <br>
