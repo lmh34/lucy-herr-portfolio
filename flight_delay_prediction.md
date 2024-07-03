@@ -86,7 +86,8 @@ Preventing data leakage, or information from an evaluation dataset "leaking" int
 <br>
 <br>
 4. After building confidence in our cross-validated models, we evaluated them against our “pure” validation dataset. <br>
-5. After iterating through the cross-validation and pure validation sets, we selected our final model pipeline and evaluated it against the test/holdout dataset.  
+5. After iterating through the cross-validation and pure validation sets, we selected our final model pipeline and evaluated it against the test/holdout dataset.
+ 
 <br>
 The final image below integrates all stages of this approach: 
 <br>
