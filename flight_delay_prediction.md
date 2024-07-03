@@ -7,16 +7,15 @@
 This Machine Learning at Scale team project used Spark, Databricks, and 5 years of U.S. domestic flight and weather data to predict flight delays of at least 15 minutes at 2 hours in advance of their scheduled departures.
 <br>
 Our objectives in this project were to:<br>
-1.  Develop machine learning models that can predict 15+ minute delays within 2 hours of departure with at least 20% precision at 80% recall threshold 
-2.  Identify key factors in flight delays for future model development and client insights
+- (1) Develop machine learning models that can predict 15+ minute delays within 2 hours of departure with at least 20% precision at 80% recall threshold 
+- (2) Identify key factors in flight delays for future model development and client insights
 <br>
 <br>
-### Background 
-<br>
+###Background
 Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1]. At an estimated cost of $101.18 per minute of delay in aircraft block flight time, longer delays mean exacerbated costs [2]. Actionable predictions and insights into the sources of delays can empower proactive, data-driven strategies to minimize the disruptions caused by delays, yielding improved customer satisfaction and reduced operational costs.
 <br>
 <br>
-### Data Overview
+###Data Overview
 The flight dataset [3] we used was sourced from the TranStats data collection (U.S. Department of Transportation). The full dataset consists of on-time performance data for 31,746,841 U.S. passenger flights between 2015 and 2021, with 109 total features. Key features for use in EDA and modeling include flight and carrier (airline) identifiers, airport location information, and delay time and source attributes. 
 <br>
 Our weather dataset [4], sourced from NOAA (National Oceanic and Atmospheric Administration), consists of hourly, daily and monthly weather observation summaries.  Below is a table showing the general sections of features, some examples from each, and our understanding of those features.
@@ -31,28 +30,25 @@ It’s important to note that we performed a new join of flight and weather data
 <img src="images/261_join_logic.png?raw=true"/>
 <br>
 <br>
-### Data Preprocessing
-<br>
-<br>
+###Data Preprocessing
 Making the optimal use of the original data in our models required extensive data preprocessing and exploratory analysis, which is illustrated in the diagram below. 
 <br>
 <img src="images/261_eda_overview.png?raw=true"/>
 <br>
 <br>
-#### Exploratory Data Analysis 
-<br>
+#### Exploratory Data Analysis
 Preliminary EDA of one year of joined flights and weather data (2015) revealed some striking trends that later proved largely consistent over the full data set. First, the distribution of flight delays based on length of delay, it was interesting to note that the majority of flights were early, on time, or delayed by fewer than 15 minutes. However, a small proportion of flights had extremely long delays (up to 3 hours, which preceded cancellations).
 <br> 
 The frequency distribution of all domestic U.S. flights in 2015 (for all airports) is highly skewed, with a substantial proportion of early or on-time flights. Simple visualizations such as this point to the need to understand which characteristics are unique to the small proportion of flights with extremely long delay times.
 <br>
-<img src="images/261_total_flights_by_dep_delay.png?raw=true"/>
+<img src="images/261_total_flights_by_depdelay.png?raw=true"/>
 <br>
 We also noted the variation in average delay length by carrier, which subsequently informed our feature engineering decisions.
 <br>
 <img src="images/261_avg_delay_by_carrier.png?raw=true"/>
 <br>
 <br>
-#### Feature Engineering 
+#### Feature Engineering
 <br>
 Experimentation with engineered features proved a critical part of improving model performance. The table below illustrates some of our key engineered predictors related to factors in delays identified in air transportation research, such as severe weather events and increased airport congestion. 
 <br>
@@ -63,7 +59,7 @@ The plots below illustrate the relationships between the departure delay target 
 <img src="images/261_FE_pairplot.png?raw=true"/>
 <br>
 <br>
-#### Feature Selection 
+#### Feature Selection
 Given the high dimensionality of the data and the imperative to guard compute efficiency, we used a number of methods to informed our feature selection decisions, including omitting features with over 90% null value and Lasso Regularization. Feature importance was also a consideration in developing our models. 
 <br>
 <img src="images/261_feat_importance_plot.png?raw=true"/>
@@ -76,7 +72,7 @@ The figure below provides an overview of our modeling pipeline. First, we devise
 <img src="images/261_model_pipeline_only.png?raw=true"/>
 <br>
 <br>
-#### Time Series Splits & Cross Validation Strategy
+#### Time Series Splits & Cross Validation
 <br>
 Preventing data leakage, or information from an evaluation dataset "leaking" into the training process, was a major challenge in designing our pipeline. By taking pains to exclude future information from predictions made for earlier time points, our objective was to prevent misleading or inflated performances in our models. We designed our pipeline with layers of evaluation data, including a cross-validation design suitable for time series data, to minimize potential data leakage.
 <br>
@@ -102,13 +98,14 @@ Given the size of the data and our limited compute budget for the project, we al
 <br>
 #### Modeling Details: Multilayer Perceptron
 <br>
-To develop the multilayer perceptron model, we selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, we experimented with the four distinct network architectures detailed in the table below.<br>
-| MLP model | Architecture | Avg. CV Time |  Avg. CV Train Recall  |  Avg. CV Train Recall  | Avg. CV Train Recall |  Avg. CV Train Recall  |
-| ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |------------ 
-|1 | 20 - 8 - Relu - 2 Softmax  | 166.02s  | 0.723 |  0.358 | 0.615 |  0.578|
-|2 | 20 - 4 - Relu - 2 Softmax   | 196.53s  | 0.723 | 0.358 | 0.615 | 0.566 |
-|3 | 20 - 4 - Relu - 4 - Relu - 2 Softmax  |  244.06s | 0.711 | 0.598 | 0.617| 0.599 |
-|4 | 20 - 16 - Relu - 8 - Relu - 4 - Relu - 2 Softmax  | 296.09s | 0.723 |  0.356 | 0.630 |0.582 |
+To develop the multilayer perceptron model, we selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, we experimented with the four distinct network architectures detailed in the table below.
+<br>
+| MLP Model | Architecture | Avg. CV Time |  Avg. CV Train Recall  |  Avg. CV Train Recall  | Avg. CV Train Recall |  Avg. CV Train Recall  |
+| ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |------------ |
+| 1 | 20 - 8 - Relu - 2 Softmax  | 166.02s  | 0.723 |  0.358 | 0.615 |  0.578|
+| 2 | 20 - 4 - Relu - 2 Softmax   | 196.53s  | 0.723 | 0.358 | 0.615 | 0.566 |
+| 3 | 20 - 4 - Relu - 4 - Relu - 2 Softmax  |  244.06s | 0.711 | 0.598 | 0.617| 0.599 |
+| 4 | 20 - 16 - Relu - 8 - Relu - 4 - Relu - 2 Softmax  | 296.09s | 0.723 |  0.356 | 0.630 |0.582 |
 <br> 
 <br> 
 Ultimately, modifications to the network architectures translated only to minimal differences in average precision and recall values across the cross-validated sets. Architecture 3 (20 - 4 - Relu - 4 - Relu - 2 Softmax) was selected as our final MLP model on the basis of its marginally lower disparities between precision and recall for the validation sets against the train sets in cross validation as well as its lighter compute time compared to the more complex Architecture 4. 
