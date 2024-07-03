@@ -29,7 +29,8 @@ Our weather dataset [4], sourced from NOAA (National Oceanic and Atmospheric Adm
 It’s important to note that we performed a new join of flight and weather data to enhance the quality and precision of the data. Although this step was computationally intensive, doing so enabled us to achieve a number of important objectives not feasible with the existing version of the merged data: <br>
 - Use more complete and granular weather features, especially same-day weather observations 
 - Include arrival (destination) airport weather observations 
-- Ensure weather features systematically reflect the most recent available data and prevent further issues with data leakage in subsequent feature engineering 
+- Ensure weather features systematically reflect the most recent available data and prevent further issues with data leakage in subsequent feature engineering
+ 
 <br>
 <img src="images/261_join_logic.png?raw=true"/>
 <br>
@@ -80,8 +81,9 @@ Preventing data leakage, or information from an evaluation dataset "leaking" int
 <br>
 1. The full, 5-year data was split into a training set (2015-2018) and test/holdout set (2019) to be used once for evaluation after finetuning the models.<br>
 2. The 2015-2018 training set was then further split along an 80/20 ratio. The new reduced train set was used for the bulk of modeling and cross validation, while the 20% “pure” validation set was set aside for limited use in evaluation. <br>
-3. All models were cross-validated using a sliding time-series split cross-validation design. The diagram below illustrates this technique. <br>
+3. All models were cross-validated using a sliding time-series split cross-validation design. The diagram below illustrates this technique. <br><br>
 <img src="images/261_cross_validation.png?raw=true"/>
+<br>
 <br>
 4. After building confidence in our cross-validated models, we evaluated them against our “pure” validation dataset. <br>
 5. After iterating through the cross-validation and pure validation sets, we selected our final model pipeline and evaluated it against the test/holdout dataset.  
