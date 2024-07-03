@@ -14,7 +14,8 @@ The devastating impacts of the fentanyl epidemic have skyrocketed over recent ye
 <br>
 <br> 
 Sentanyl is the first publicly available tool for localized fentanyl overdose forecasting, generating estimates within +/-1 death per 100K population on average. Public health stakeholders can use Sentanyl’s dashboard to leverage these novel insights, optimize future resource allocation, and, ultimately, save lives.
-<br> 
+<br>
+<br>
 [Project Deck](/pdf/capstone_final_presentation.pdf)
 <br> 
 <a href="https://github.com/lmh34/ucb_mids_capstone_spr24">Project GitHub Repo</a>
@@ -27,6 +28,8 @@ Sentanyl is the first publicly available tool for localized fentanyl overdose fo
 <br>
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 <br>
+<br>
+Which state-of-the-art NLP (NER) models are the most effective solutions for detecting sensitive user data in unstructured text? This natural language processing project trained SpaCy, BERT, deBERTa, and bi-LSTM models using Tensorflow/Keras to perform token classification of personally identifying information (PII) in a large student essay dataset.
 <br>
 <a href="https://github.com/lmh34/team_5_3">Project GitHub Repo</a>
 <br>
@@ -64,7 +67,7 @@ Can we predict pet adoption rates using adoption profile text, image, and sentim
 ## Additional Projects
 <br>
 <br>
-[Driving B2C Web Traffic with A/B Testing and Google Analytics](/pdf/241_sip_the_difference_fp.pdf)
+[Causal Inference: Driving B2C Web Traffic with A/B Testing and Google Analytics](/pdf/241_sip_the_difference_fp.pdf)
 <br>
 <br>
 <img src="images/241_user_device.png?raw=true"/>
@@ -81,12 +84,12 @@ Does a paid Google SEO ad campaign with wellness and lifestyle-oriented messagin
 <img src="images/203_data.png?raw=true"/>
 <br>
 <br>
-This data analysis project used regression to explore the effects of ad spending, runtime, and user demographics on the number of impressions received by Snapchat political ads.
+This statistics project used regression to explore the effects of ad spending, runtime, and user demographics on the number of impressions received by Snapchat political ads.
 <br>
 <br>
 
 ---
-[What do Twitter’s Social Networks Reveal about Influencers' Roles in the 2022 Nevada Senate Election Upset?](/pdf/201_nv_election_twitter.pdf)
+[What can Twitter’s Social Networks Reveal about Key Influencers and Issues in the 2022 Nevada Senate Election Upset?](/pdf/201_nv_election_twitter.pdf)
 <br>
 <br>
 <img src="images/201_graph_algos.png?raw=true"/>
@@ -97,7 +100,7 @@ This experimental design project leveraged Twitter data, neo4j graph databases, 
 <br>
 
 ---
-[Data Engineering: Optimizing Delivery Routing with Neo4j and NoSQL Databases ](/pdf/W205_final_presentation.pdf)
+[Data Engineering: Optimizing Delivery Routing with Neo4j and NoSQL Databases](/pdf/W205_final_presentation.pdf)
 <br>
 <br>
 <img src="images/205_locker_map.png?raw=true"/>
