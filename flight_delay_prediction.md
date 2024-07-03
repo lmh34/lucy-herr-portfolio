@@ -98,16 +98,15 @@ Given the size of the data and our limited compute budget for the project, we al
 <br>
 <br>
 #### Modeling Details: Multilayer Perceptron
-<br>
-To develop the multilayer perceptron model, we selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, we experimented with the four distinct network architectures detailed in the table below.
-
+To develop the multilayer perceptron model, we selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, we experimented with the four distinct network architectures detailed in the table below.<br>
 
 | MLP Model | Architecture | Avg. CV Time | Avg. CV Train Recall | Avg. CV Train Precision |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| 1 | 20 - 8 - Relu - 2 Softmax  | 166.02s  | 0.723 |  0.358 |
-| 2 | 20 - 4 - Relu - 2 Softmax   | 196.53s  | 0.723 | 0.358 |
-| 3 | 20 - 4 - Relu - 4 - Relu - 2 Softmax  |  244.06s | 0.711 | 0.598 |
-| 4 | 20 - 16 - Relu - 8 - Relu - 4 - Relu - 2 Softmax  | 296.09s | 0.723 |
+| 1 | 20 - 8 - Relu - 2 Softmax | 166.02s | 0.723 | 0.358 |
+| 2 | 20 - 4 - Relu - 2 Softmax | 196.53s | 0.723 | 0.358 |
+| 3 | 20 - 4 - Relu - 4 - Relu - 2 Softmax |  244.06s | 0.711 | 0.598 |
+| 4 | 20 - 16 - Relu - 8 - Relu - 4 - Relu - 2 Softmax | 296.09s | 0.723 |
+
 
 <br> 
 <br> 
@@ -138,7 +137,5 @@ Given those distinctions, it's possible that adjusting the delay threshold to a 
 <br>
 <br>
 ### Conclusion 
-Proactive delay management through predictive analytics translates to enhanced operational efficiency. Accurate delay predictions facilitate proactive measures, including optimized crew scheduling, reduced fuel wastage, and avoidance of penalties related to customer compensation for delays, thus reducing inefficiencies that lead to negative financial impact.
-<br>
-Our analysis enables airlines to proactively identify flights with high probabilities of delay, allowing preemptive action to mitigate the damage caused by the delay. We recommend integrating this predictive model into operational strategies to optimize scheduling and mitigate delays. Continuous monitoring and refinement of the model promise sustained improvements in operational efficiency and customer satisfaction over time.
+Proactive delay management through predictive analytics translates to enhanced operational efficiency. Our analysis enables airlines to effectively identify flights with high probabilities of delay and facilitate more optimal crew scheduling, lower fuel wastage, and lessened customer compensation for delays, thus mitigating inefficiencies that lead to negative financial impact. We recommend integrating this predictive model into operational strategies for delay management. Continuous monitoring and refinement of the model promise sustained improvements in operational efficiency and customer satisfaction over time.
 <br>
