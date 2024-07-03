@@ -7,15 +7,17 @@
 This Machine Learning at Scale team project used Spark, Databricks, and 5 years of U.S. domestic flight and weather data to predict flight delays of at least 15 minutes at 2 hours in advance of their scheduled departures.
 <br>
 Our objectives in this project were to:<br>
-- (1) Develop machine learning models that can predict 15+ minute delays within 2 hours of departure with at least 20% precision at 80% recall threshold 
-- (2) Identify key factors in flight delays for future model development and client insights
+1. Develop machine learning models that can predict 15+ minute delays within 2 hours of departure with at least 20% precision at 80% recall threshold 
+2.  Identify key factors in flight delays for future model development and client insights
 <br>
 <br>
-###Background
+### Background
+<br>
 Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1]. At an estimated cost of $101.18 per minute of delay in aircraft block flight time, longer delays mean exacerbated costs [2]. Actionable predictions and insights into the sources of delays can empower proactive, data-driven strategies to minimize the disruptions caused by delays, yielding improved customer satisfaction and reduced operational costs.
 <br>
 <br>
-###Data Overview
+### Data Overview
+<br>
 The flight dataset [3] we used was sourced from the TranStats data collection (U.S. Department of Transportation). The full dataset consists of on-time performance data for 31,746,841 U.S. passenger flights between 2015 and 2021, with 109 total features. Key features for use in EDA and modeling include flight and carrier (airline) identifiers, airport location information, and delay time and source attributes. 
 <br>
 Our weather dataset [4], sourced from NOAA (National Oceanic and Atmospheric Administration), consists of hourly, daily and monthly weather observation summaries.  Below is a table showing the general sections of features, some examples from each, and our understanding of those features.
@@ -113,10 +115,13 @@ Ultimately, modifications to the network architectures translated only to minima
 <img src="images/261_mlp_diagram.png?raw=true"/>
 <br>
 <br>
-### Model Evaluation  
+### Model Evaluation 
+#### Performance Metric 
 To evaluate model performance, we chose to measure precision at a threshold of 80% recall to reflect the relative higher cost of false negative delay predictions. This prioritizing of recall enabled us to ensure that the insights we produce would be actionable in responding to flight delay mitigation. We therefore thresholded our predictions such that the resulting recall is approximately 80%, and models are evaluated based on associated precision value at that threshold. 
 <br>
-<img src="images/261_model_evalpng?raw=true"/>
+<br>
+#### Results
+<img src="images/261_model_eval.png?raw=true"/>
 <br>
 With a precision value of 27.5% at 80% recall, the random forest model slightly outperformed the logistic regression, MLP, and baseline models. In other words, this performance metric means that (1) given that we are correctly classifying at least 80% of true delays overall, (2) we are also correctly classifying 27.5% of the true delays as delays (and conversely, 72.5% of non-delays as delays). 
 <br>
@@ -124,7 +129,6 @@ We also subsequently developed an ensemble model combining the logistic regressi
 <br>
 <br>
 #### Results Analysis 
-<br>
 The graph below shows the distributions of model results for the subsets of delayed and on time predictions. Notably, longer delays indicate higher chances of being predicted as delayed. This demonstrates that the model does detect some important patterns predictive of a delay. In fact, for flights with the delay significantly above 15, the majority are labeled as delayed. 
 <br>
 <img src="images/261_results_analysis.png?raw=true"/>
