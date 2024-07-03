@@ -11,11 +11,13 @@ Our objectives in this project were to:<br>
 2.  Identify key factors in flight delays for future model development and client insights
 <br>
 <br>
+
 ### Background
 <br>
 Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1]. At an estimated cost of $101.18 per minute of delay in aircraft block flight time, longer delays mean exacerbated costs [2]. Actionable predictions and insights into the sources of delays can empower proactive, data-driven strategies to minimize the disruptions caused by delays, yielding improved customer satisfaction and reduced operational costs.
 <br>
 <br>
+
 ### Data Overview
 <br>
 The flight dataset [3] we used was sourced from the TranStats data collection (U.S. Department of Transportation). The full dataset consists of on-time performance data for 31,746,841 U.S. passenger flights between 2015 and 2021, with 109 total features. Key features for use in EDA and modeling include flight and carrier (airline) identifiers, airport location information, and delay time and source attributes. 
@@ -32,7 +34,8 @@ It’s important to note that we performed a new join of flight and weather data
 <img src="images/261_join_logic.png?raw=true"/>
 <br>
 <br>
-###Data Preprocessing
+
+### Data Preprocessing
 Making the optimal use of the original data in our models required extensive data preprocessing and exploratory analysis, which is illustrated in the diagram below. 
 <br>
 <img src="images/261_eda_overview.png?raw=true"/>
