@@ -124,9 +124,10 @@ To evaluate model performance, we chose to measure precision at a threshold of 8
 <br>
 <br>
 #### Results
-<img src="images/261_model_eval.png?raw=true"/>
+<img src="images/261_model_eval.png" width="200"/>
 <br>
 With a precision value of 27.5% at 80% recall, the random forest model slightly outperformed the logistic regression, MLP, and baseline models. In other words, this performance metric means that (1) given that we are correctly classifying at least 80% of true delays overall, (2) we are also correctly classifying 27.5% of the true delays as delays (and conversely, 72.5% of non-delays as delays). 
+<br>
 <br>
 We also subsequently developed an ensemble model combining the logistic regression, random forest, and MLP predictions using majority voting with weighted votes. This pipeline was a result of fine-tuning the hyperparameters within each respective model, such as numTrees and maxDepth in Random Forest, and included engineered features (e.g. average delay at the origin airport, hourly precipitation, etc.). This final model ultimately outperformed the previous models, with marginal improvement. 
 <br>
@@ -140,5 +141,8 @@ Given those distinctions, it's possible that adjusting the delay threshold to a 
 <br>
 <br>
 ### Conclusion 
-Proactive delay management through predictive analytics translates to enhanced operational efficiency. Our analysis enables airlines to effectively identify flights with high probabilities of delay and facilitate more optimal crew scheduling, lower fuel wastage, and lessened customer compensation for delays, thus mitigating inefficiencies that lead to negative financial impact. We recommend integrating this predictive model into operational strategies for delay management. Continuous monitoring and refinement of the model promise sustained improvements in operational efficiency and customer satisfaction over time.
+Proactive delay management through predictive analytics translates to enhanced operational efficiency. Our analysis enables airlines to effectively identify flights with high probabilities of delay and facilitate more optimal crew scheduling, lower fuel wastage, and lessened customer compensation for delays, thus mitigating inefficiencies that lead to negative financial impact.
+<br>
+<br>
+We recommend integrating this predictive model into operational strategies for delay management. Continuous monitoring and refinement of the model promise sustained improvements in operational efficiency and customer satisfaction over time.
 <br>
