@@ -5,7 +5,10 @@ description: > # your text below (remove <br> elements if you don't need line br
   <br><br>
   As a data scientist, I combine a robust technical and quantitative skill base with the communication strengths of my psychology background to execute actionable solutions. I am actively seeking a new role with a growing, innovative, data-mature company where I can join a strong team, solve challenging problems, and communicate insights across audiences.
   <br>
-  <a href="https://www.linkedin.com/in/lucy-m-herr">View My LinkedIn Profile</a><br>
+  <br>
+  <a href="https://www.linkedin.com/in/lucy-m-herr">View My LinkedIn Profile</a>
+  <br>
+  
   
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
