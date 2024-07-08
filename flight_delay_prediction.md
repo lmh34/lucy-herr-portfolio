@@ -8,14 +8,16 @@ This Machine Learning at Scale team project used Spark, Databricks, and 5 years 
 <br>
 Our objectives in this project were to:<br>
 1. Develop machine learning models that can predict 15+ minute delays within 2 hours of departure with at least 20% precision at an 80% recall threshold 
-2. Identify key factors in flight delays for future model development and client insights
+2. Identify key factors in flight delays for future model development and client insights 
 <br>
 <br>
+
 ### Background
 <br>
 Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1]. At an estimated cost of $101.18 per minute of delay in aircraft block flight time, longer delays mean exacerbated costs [2]. Actionable predictions and insights into the sources of delays can empower proactive, data-driven strategies to minimize the disruptions caused by delays, yielding improved customer satisfaction and reduced operational costs.
 <br>
 <br>
+
 ### Data Overview
 <br>
 The flight dataset [3] we used was sourced from the https://www.transtats.bts.gov/Tables.asp?QO_VQ=EFD&QO_anzr=Nv4yv0r%FDb0-gvzr%FDcr4s14zn0pr%FDQn6n&QO_fu146_anzr=b0-gvzr
@@ -33,12 +35,14 @@ It’s important to note that we performed a new join of flight and weather data
 <img src="images/261_join_logic.png?raw=true"/>
 <br>
 <br>
-###Data Preprocessing
+
+### Data Preprocessing
 Making the optimal use of the original data in our models required extensive data preprocessing and exploratory analysis, which is illustrated in the diagram below. 
 <br>
 <img src="images/261_eda_overview.png?raw=true"/>
 <br>
 <br>
+
 #### Exploratory Data Analysis
 Preliminary EDA of one year of joined flights and weather data (2015) revealed some striking trends that later proved largely consistent over the full data set. First, the distribution of flight delays based on length of delay, it was interesting to note that the majority of flights were early, on time, or delayed by fewer than 15 minutes. However, a small proportion of flights had extremely long delays (up to 3 hours, which preceded cancellations).
 <br> 
