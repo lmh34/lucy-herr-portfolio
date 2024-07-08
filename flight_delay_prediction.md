@@ -1,4 +1,4 @@
-## Flight Delay Prediction at Scale 
+## Machine Learning at SCale: Flight Delay Prediction
 <br>
 
 ### Overview
@@ -15,16 +15,19 @@ Our objectives in this project were to:<br>
 
 ### Background
 <br>
-Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1]. At an estimated cost of $101.18 per minute of delay in aircraft block flight time, longer delays mean exacerbated costs [2]. Actionable predictions and insights into the sources of delays can empower proactive, data-driven strategies to minimize the disruptions caused by delays, yielding improved customer satisfaction and reduced operational costs.
+Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1].
+
+[National Oceanic and Atmospheric Administration NCEI](https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data).
+ At an estimated cost of $101.18 per minute of delay in aircraft block flight time, longer delays mean exacerbated costs [2]. Actionable predictions and insights into the sources of delays can empower proactive, data-driven strategies to minimize the disruptions caused by delays, yielding improved customer satisfaction and reduced operational costs.
 <br>
 <br>
 
 ### Data Overview
 <br>
-Flight data was sourced from the [Transtats Database](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ) maintained by the U.S. Department of Transportation. The full dataset contains on-time performance data for 31,746,841 U.S. passenger flights between 2015 and 2021, with 109 total features. Key variables used in EDA and modeling included flight and carrier (airline) identifiers, airport location information, and delay time and source attributes. 
+Flight data was sourced from the [Transtats Database](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ) maintained by the U.S. Department of Transportation. The full dataset contains on-time performance data for 31,746,841 U.S. passenger flights between 2015 and 2021, with 109 total features. Key variables in EDA and modeling included flight and carrier (airline) identifiers, airport location information, and delay time and source attributes. 
 <br>
 <br>
-Weather data was sourced from NOAA (National Oceanic and Atmospheric Administration and consisted of hourly, daily and monthly weather observation summaries.  Below is a table showing the general sections of features, some examples from each, and our understanding of those features.
+Weather data was sourced from the [National Oceanic and Atmospheric Administration NCEI](https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data). This data consisted of hourly, daily and monthly weather observation summaries.  Below is a table showing the general sections of features, some examples from each, and our understanding of those features.
 <br>
 <img src="images/261_dataset_overview.png?raw=true"/>
 <br>
@@ -58,7 +61,7 @@ We also noted the variation in average delay length by airline carrier, which pl
 <br>
 #### Feature Engineering
 <br>
-Experimentation with feature engineering was essential to enhancing our ultimate model performance. The table below illustrates some of our key engineered predictors related to factors identified in air transportation research, such as severe weather events and increased airport congestion. 
+Experimentation with feature engineering was essential to enhancing our ultimate model performance. The table below illustrates some of our key engineered predictors related to factors identified in air transportation research, such as severe weather events and increased airport congestion ([1](https://ieeexplore.ieee.org/document/9795721), [2](https://www.sciencedirect.com/science/article/abs/pii/S0969699720305755), [3](https://pilotinstitute.com/wind-speed-airplane/#:~:text=The%20only%20thing%20a%20strong,flight%20takes%20longer%20than%20expected),  [4](https://pilotinstitute.com/can-planes-fly-in-rain/) [5](https://www.cnn.com/travel/article/climate-change-airplane-takeoff-scn/index.html#:~:text=%E2%80%9CLift%20depends%20on%20several%20factors,of%20temperature%20rise%2C%20Williams%20said), [6](https://airadvisor.com/en/blog/is-it-safe-to-fly-a-plane-in-a-thunderstorm#:~:text=Can%20a%20plane%20take%20off,Fly%20With%20an%20Ear%20Infection%3F), [7](https://www.physlink.com/education/askexperts/ae652.com)). 
 <br>
 <img src="images/261_fe_table.png?raw=true"/>
 <br>
@@ -68,14 +71,14 @@ The plots below illustrate the relationships between departure delay (the target
 <br>
 <br>
 #### Feature Selection
-Given the high dimensionality of ourdata and the imperative to guard compute efficiency, we used a number of methods to inform our feature selection decisions, including omitting features with over 90% null value and implementing Lasso regularization. Feature importance was also a consideration in developing our models. 
+Given the high dimensionality of ourdata and the imperative to guard compute efficiency, we used a number of methods to inform our feature selection decisions, including omitting features with over 90% null values and implementing Lasso regularization. Feature importance was also a consideration in developing our models. 
 <br>
 <img src="images/261_feat_importance_plot.png?raw=true"/>
 <br>
 <br>
 
 ### Modeling Pipeline
-The figure below provides an overview of our modeling pipeline. First, we devised a simple, intuitive baseline model computed as the mean delay at a flight’s origin airport between 4 and 2 hours prior to takeoff. We then built, trained, and evaluated logistic regression, random forest, and multilayer perceptron (MLP) models for comparison. 
+The figure below provides an overview of our modeling pipeline. First, we devised a simple, intuitive baseline model computed as the mean delay at a flight’s origin airport between 4 and 2 hours before takeoff. We then built, trained, and evaluated logistic regression, random forest, and multilayer perceptron (MLP) models for comparison. 
 <br>
 <img src="images/261_model_pipeline_only.png?raw=true"/>
 <br>
@@ -91,7 +94,9 @@ Preventing data leakage, when information from evaluation data unintentionally "
 2) Next, the 2015-2018 training set was split again along an 80/20 ratio. The new reduced train set was used for the bulk of modeling and cross validation, while the 20% “pure” validation set was set aside for limited use in evaluation. 
 <br>
 <br> 
-3) As we developed our models, each was cross-validated using the sliding time-series split cross-validation design illustrated here.<br>
+3) As we developed our models, each was cross-validated using a sliding time-series split cross-validation design illustrated here.
+<br>
+<br>
 <img src="images/261_cross_validation.png" width="400"/>
 <br>
 <br>
@@ -110,13 +115,13 @@ Integrating the data layering and pipeline diagrams demonstrates the alignment b
 #### Scaling Considerations
 Given the size of the data and our limited compute budget of $500 for the project, we also carefully tracked the efficiency of our models via their runtimes and configurations as we scaled up from working with smaller subsets of the data. Notably, the random forest model scaled the most effectively as we iterated from smaller subsets of training data to the full 4-year scope, while the MLP was less efficient. 
 <br>
-<img src="images/261_config_runtime.png" width="400"/>
+<img src="images/261_config_runtime.png" width="350"/>
 <br>
 <br>
 
 #### Modeling Details: Multilayer Perceptron
 <br>
-To develop the multilayer perceptron model, I selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, I experimented with the four distinct network architectures detailed in the table below.
+To develop the multilayer perceptron model, I selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, I experimented with four distinct network architectures. 
 <br>
 <img src="images/261_mlp_table.png?raw=true"/>
 <br> 
@@ -157,9 +162,9 @@ Given those distinctions, it's possible that redefining the delay threshold to a
 <br>
 <br>Beyond the scope of the project, it would be valuable to dedicate additional time to experimeting with new features that might better capture the nuances of the delay factors, such as graph-based variables that reflect the temporal-spatial dimensions of flight congestion. In addition, determining a strategy for including cancelled flights in the models might have a meaningful payoff in the utility of the predictions. 
 <br>
+<br>
 
 ### Conclusion 
-Proactive delay management through predictive analytics translates to enhanced operational efficiency. 
-
 Accurate delay predictions facilitate proactive measures, including optimized crew scheduling, reduced fuel wastage, and avoidance of penalties related to customer compensation for delays, thus reducing inefficiencies that lead to negative financial impact. Our analysis enables airlines to proactively identify flights with high probabilities of delay, allowing preemptive action to mitigate the financial and operational damages caused by the delay. By integrating this predictive model into operational strategies with continuous monitoring and refinement over time, client airlines can anticipate driving sustained improvements in operational efficiency and customer satisfaction over time.
 <br>
+
