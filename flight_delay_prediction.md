@@ -83,23 +83,23 @@ Preventing data leakage, when information from evaluation data "leaks" into mode
 <br>
 <img src="images/261_model_pipeline_splits_only.png" width="500"/>
 <br>
-First, the full (5-year) dataset was split into a training set (2015-2018) and test/holdout set (2019) to be used once for evaluation after finetuning the models.
+1) First, the full (5-year) dataset was split into a training set (2015-2018) and test/holdout set (2019) to be used once for evaluation after finetuning the models.
 <br>
 <br>
-Next, the 2015-2018 training set was split again along an 80/20 ratio. The new reduced train set was used for the bulk of modeling and cross validation, while the 20% “pure” validation set was set aside for limited use in evaluation. 
+2) Next, the 2015-2018 training set was split again along an 80/20 ratio. The new reduced train set was used for the bulk of modeling and cross validation, while the 20% “pure” validation set was set aside for limited use in evaluation. 
 <br>
 <br> 
-As we developed our models, each was cross-validated using the sliding time-series split cross-validation design illustrated here. <br>
+3) As we developed our models, each was cross-validated using the sliding time-series split cross-validation design illustrated here. <br>
 <img src="images/261_cross_validation.png" width="400"/>
 <br>
 <br>
-After building confidence in our cross-validated models, we evaluated them against our “pure” validation dataset. 
+4) After building confidence in our cross-validated models, we evaluated them against our “pure” validation dataset. 
 <br>
 <br>
-Finally, after iterating through the cross-validation and pure validation sets, we selected our final model pipeline and evaluated it against the test/holdout dataset.  
+5) Finally, after iterating through the cross-validation and pure validation sets, we selected our final model pipeline and evaluated it against the test/holdout dataset.  
 <br>
 <br>
-Integrating the data layering and pipeline diagrams demonstrates how these stages fit together. 
+Integrating the data layering and pipeline diagrams demonstrates how these stages aligned. 
 <br>
 <img src="images/261_model_pipeline_full.png?raw=true"/>
 <br>
