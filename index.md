@@ -4,7 +4,7 @@
 
 ## Sample Data Science Projects 
 
-[MiDS Capstone Project: Sentanyl - Forecasting the Fentanyl Epidemic](https://groups.ischool.berkeley.edu/Sentanyl/#)
+[MIDS Capstone: Sentanyl - Forecasting the Fentanyl Epidemic](https://groups.ischool.berkeley.edu/Sentanyl/#)
 <br>
 <br>
 <img src="images/sentanyl_dashboard_image.png?raw=true"/>
@@ -22,18 +22,6 @@ Sentanyl is the first publicly available tool for localized fentanyl overdose fo
 <br>
 <br>
 
----
-[NLP: Automated Detection of Personally Identifiable Data in Unstructured Text](/pdf/sample_presentation.pdf)
-<br>
-<br>
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-<br>
-<br>
-Which state-of-the-art NLP (NER) models are the most effective solutions for detecting sensitive user data in unstructured text? This natural language processing project trained SpaCy, BERT, deBERTa, and bi-LSTM models using Tensorflow/Keras to perform token classification of personally identifying information (PII) in a large student essay dataset.
-<br>
-<a href="https://github.com/lmh34/team_5_3">Project GitHub Repo</a>
-<br>
-<br>
 
 ---
 [Machine Learning at Scale: Flight Delay Prediction](/flight_delay_prediction)
@@ -45,9 +33,27 @@ Which state-of-the-art NLP (NER) models are the most effective solutions for det
 Can flight delays be predicted in advance of their scheduled departure times? This Machine Learning at Scale project used Spark, Databricks, and 5 years of U.S. flight and weather data to predict flight delays of at least 15 minutes at 2 hours in advance of scheduled departure.
 <br>
 <br>
+[Project Deck](/pdf/.pdf)
+<br>
 <a href="https://github.com/lmh34/team_5_3">Project GitHub Repo</a>
 <br>
 <br>
+
+
+---
+[NLP: Automated Detection of Personal Identifiable Data in Unstructured Text](/pdf/sample_presentation.pdf)
+<br>
+<br>
+<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<br>
+<br>
+Which state-of-the-art NLP (NER) models are the most effective solutions for detecting sensitive user data in unstructured text? This natural language processing project trained SpaCy, BERT, deBERTa, and bi-LSTM models using Tensorflow/Keras to perform token classification of personal identifiable information (PII) in a large student essay dataset.
+<br>
+<br>
+<a href="https://github.com/lmh34/266_NLP_final_project">Project GitHub Repo</a>
+<br>
+<br>
+
 
 ---
 [Applied Machine Learning: Predicting Pet Adoption Rates with Multimodal Data](/pdf/207_final_presentation.pdf)
@@ -55,12 +61,18 @@ Can flight delays be predicted in advance of their scheduled departure times? Th
 <br>
 <img src="images/207_pipeline.png?raw=true"/>
 <br>
+<img src="images/207_modeling_approach.png?raw=true"/>
 <br>
+<img src="images/207_xgb_params.png?raw=true"/>
+<br>
+<img src="images/207_rescuer_eda.png?raw=true"/>
 Can we predict pet adoption rates using adoption profile text, image, and sentiment data? This Applied Machine Learning project used XGBoost, neural networks, and Transformers architectures to classify predicted adoption rates to advise shelters and adoption agencies.   
+<br>
 <br>
 <a href="https://github.com/lmh34/mids-207-final-project-summer23-Rueda-Sambrailo-Herr-Liu-Kuehl">Project GitHub Repo</a>
 <br>
 <br>
+
 
 ---
 <br>
@@ -78,28 +90,6 @@ Does a paid Google SEO ad campaign with wellness and lifestyle-oriented messagin
 <br>
 
 ---
-[Predicting Snapchat Political Ad Impressions Based on Spend](/pdf/snapchat-political-ad-spend.pdf)
-<br>
-<br>
-<img src="images/203_data.png?raw=true"/>
-<br>
-<br>
-This statistics project used regression to explore the effects of ad spending, runtime, and user demographics on the number of impressions received by Snapchat political ads.
-<br>
-<br>
-
----
-[What can Twitter’s Social Networks Reveal about Key Influencers and Issues in the 2022 Nevada Senate Election Upset?](/pdf/201_nv_election_twitter.pdf)
-<br>
-<br>
-<img src="images/201_graph_algos.png?raw=true"/>
-<br>
-<br>
-This experimental design project leveraged Twitter data, neo4j graph databases, and LDA classification to explore pivotal Twitter users, networks, and terms behind the surprising outcome of the 2022 Nevada Senate Election.
-<br>
-<br>
-
----
 [Data Engineering: Optimizing Delivery Routing with Neo4j and NoSQL Databases](/pdf/W205_final_presentation.pdf)
 <br>
 <br>
@@ -107,6 +97,17 @@ This experimental design project leveraged Twitter data, neo4j graph databases, 
 <br>
 <br>
 This data engineering case study addressed integrating new technologies into a client company’s platform for expanding service locations, meal delivery, and customer base in the Bay Area. We used graph algorithms with Neo4J, MongoDB, and Redis to determine optimal delivery locations and routes and architect flexible, scalable database solutions. 
+<br>
+<br>
+
+---
+[Applied Statistics: Predicting Snapchat Political Ad Impressions Based on Spend](/pdf/snapchat-political-ad-spend.pdf)
+<br>
+<br>
+<img src="images/203_data.png?raw=true"/>
+<br>
+<br>
+This statistics project used regression to explore the effects of ad spending, runtime, and user demographics on the number of impressions received by Snapchat political ads.
 <br>
 <br>
 
