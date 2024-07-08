@@ -52,26 +52,28 @@ Making the optimal use of the original data in our models required extensive dat
 #### Exploratory Data Analysis
 Preliminary EDA of the joined flights and weather data for 2015 revealed some striking trends that later proved consistent across the dataset as a whole. First, in examining the distribution of flight delays based on delay length, we observed that the majority of flights were either early or on time (including delays of fewer than 15 minutes). However, a small proportion of flights featured extremely long delays of up to 3 hours, which tended to lead to flight cancellations at the high end of this range. This high degree of variation indicates the imperitive to understand which characteristics are unique to the small proportion of flights with extremely long delay times.
 <br>
+<br>
 <img src="images/261_total_flights_by_depdelay.png?raw=true"/>
 <br>
 We also noted the variation in average delay length by airline carrier, which played a key role in our subsequent feature engineering decisions.
+<br>
 <br>
 <img src="images/261_avg_delay_by_carrier.png?raw=true"/>
 <br>
 <br>
 #### Feature Engineering
-<br>
-Experimentation with feature engineering was essential to enhancing our ultimate model performance. The table below illustrates some of our key engineered predictors related to factors identified in air transportation research, such as severe weather events and increased airport congestion ([1](https://ieeexplore.ieee.org/document/9795721), [2](https://www.sciencedirect.com/science/article/abs/pii/S0969699720305755), [3](https://pilotinstitute.com/wind-speed-airplane/#:~:text=The%20only%20thing%20a%20strong,flight%20takes%20longer%20than%20expected),  [4](https://pilotinstitute.com/can-planes-fly-in-rain/) [5](https://www.cnn.com/travel/article/climate-change-airplane-takeoff-scn/index.html#:~:text=%E2%80%9CLift%20depends%20on%20several%20factors,of%20temperature%20rise%2C%20Williams%20said), [6](https://airadvisor.com/en/blog/is-it-safe-to-fly-a-plane-in-a-thunderstorm#:~:text=Can%20a%20plane%20take%20off,Fly%20With%20an%20Ear%20Infection%3F), [7](https://www.physlink.com/education/askexperts/ae652.com)). 
+
+Experimentation with feature engineering was essential to enhancing our ultimate model performance. The table below illustrates some of our key engineered predictors related to factors identified in air transportation research, such as severe weather events and increased airport congestion ([1](https://ieeexplore.ieee.org/document/9795721), [2](https://www.sciencedirect.com/science/article/abs/pii/S0969699720305755), [3](https://pilotinstitute.com/wind-speed-airplane/#:~:text=The%20only%20thing%20a%20strong,flight%20takes%20longer%20than%20expected),  [4](https://pilotinstitute.com/can-planes-fly-in-rain/),  [5](https://www.cnn.com/travel/article/climate-change-airplane-takeoff-scn/index.html#:~:text=%E2%80%9CLift%20depends%20on%20several%20factors,of%20temperature%20rise%2C%20Williams%20said), [6](https://airadvisor.com/en/blog/is-it-safe-to-fly-a-plane-in-a-thunderstorm#:~:text=Can%20a%20plane%20take%20off,Fly%20With%20an%20Ear%20Infection%3F), [7](https://www.physlink.com/education/askexperts/ae652.com)). 
 <br>
 <img src="images/261_fe_table.png?raw=true"/>
 <br>
-The plots below illustrate the relationships between departure delay (the target outome for prediction) and the engineered feature for previous delay for the same plane within the day before the scheduled flight. Note that for a substantial proportion of flights, these two variables were very closely related.  
+The plots below illustrate the relationships between departure delay (the target outome for prediction) and the engineered feature for previous delay for the same plane within 24 hours of the scheduled flight. Note that for a substantial proportion of flights, these two variables were very closely related.  
 <br>
 <img src="images/261_FE_pairplot.png?raw=true"/>
 <br>
 <br>
 #### Feature Selection
-Given the high dimensionality of ourdata and the imperative to guard compute efficiency, we used a number of methods to inform our feature selection decisions, including omitting features with over 90% null values and implementing Lasso regularization. Feature importance was also a consideration in developing our models. 
+Given the high dimensionality of the data and the imperative to guard compute efficiency, we used a number of methods to inform our feature selection decisions, including omitting features with over 90% null values and implementing Lasso regularization. Feature importance was also a consideration in developing our models. 
 <br>
 <img src="images/261_feat_importance_plot.png?raw=true"/>
 <br>
