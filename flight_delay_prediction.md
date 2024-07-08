@@ -98,8 +98,8 @@ Integrating the data layering and pipeline diagrams gives us the full picture of
 <img src="images/261_model_pipeline_full.png?raw=true"/>
 <br>
 <br>
+
 #### Scaling Considerations
-<br>
 Given the size of the data and our limited compute budget for the project, we also carefully tracked the efficiency of our models via their runtimes and configurations. Notably, the random forest model scaled the most effectively as we iterated from smaller subsets of training data to the full 4-year scope. 
 <br>
 <img src="images/261_config_runtime.png?raw=true"/>
