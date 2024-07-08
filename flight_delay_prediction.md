@@ -1,4 +1,4 @@
-## Machine Learning at SCale: Flight Delay Prediction
+## Machine Learning at Scale: Flight Delay Prediction
 <br>
 
 ### Overview
@@ -14,7 +14,6 @@ Our objectives in this project were to:<br>
 <br>
 
 ### Background
-<br>
 Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1].
 
 [National Oceanic and Atmospheric Administration NCEI](https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data).
@@ -23,7 +22,6 @@ Optimization strategies for mitigating flight delays are crucial to the airline 
 <br>
 
 ### Data Overview
-<br>
 Flight data was sourced from the [Transtats Database](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ) maintained by the U.S. Department of Transportation. The full dataset contains on-time performance data for 31,746,841 U.S. passenger flights between 2015 and 2021, with 109 total features. Key variables in EDA and modeling included flight and carrier (airline) identifiers, airport location information, and delay time and source attributes. 
 <br>
 <br>
@@ -68,27 +66,29 @@ Experimentation with feature engineering was essential to enhancing our ultimate
 <img src="images/261_fe_table.png?raw=true"/>
 <br>
 The plots below illustrate the relationships between departure delay (the target outome for prediction) and the engineered feature for previous delay for the same plane within 24 hours of the scheduled flight. Note that for a substantial proportion of flights, these two variables were very closely related.  
-<br>
 <img src="images/261_FE_pairplot.png?raw=true"/>
 <br>
 <br>
 #### Feature Selection
 Given the high dimensionality of the data and the imperative to guard compute efficiency, we used a number of methods to inform our feature selection decisions, including omitting features with over 90% null values and implementing Lasso regularization. Feature importance was also a consideration in developing our models. 
 <br>
+<br>
 <img src="images/261_feat_importance_plot.png?raw=true"/>
 <br>
 <br>
 
 ### Modeling Pipeline
-The figure below provides an overview of our modeling pipeline. First, we devised a simple, intuitive baseline model computed as the mean delay at a flight’s origin airport between 4 and 2 hours before takeoff. We then built, trained, and evaluated logistic regression, random forest, and multilayer perceptron (MLP) models for comparison. 
+The figure below provides an overview of our modeling pipeline. First, we devised a simple, intuitive baseline model computed as the mean delay at a flight’s origin airport between 4 and 2 hours prior to takeoff. We then built, trained, and evaluated logistic regression, random forest, and multilayer perceptron (MLP) models for comparison. 
 <br>
 <img src="images/261_model_pipeline_only.png?raw=true"/>
 <br>
 <br>
 #### Time Series Splits & Cross Validation
-Preventing data leakage, when information from evaluation data unintentionally "leaks" into model training, was a major focus in designing our pipeline. By taking pains to exclude future information from predictions made at earlier time points, our objective was to prevent misleading or inflated performance in our models. To this end, we designed our pipeline with layers of evaluation data, including a cross-validation design suitable for time series data, to minimize potential data leakage.
+Preventing data leakage, when information from evaluation data unintentionally "leaks" into model training, was a major focus in designing our pipeline. By taking pains to exclude future information from predictions made at earlier time points, our objective was to prevent misleading or inflated performance in our models. To minimize potential data leakage, we designed our pipeline with layers of evaluation data, including a cross-validation design suitable for time series data. 
+<br>
 <br>
 <img src="images/261_model_pipeline_splits_only.png" width="500"/>
+<br>
 <br>
 1) First, the full (5-year) dataset was split into a training set (2015-2018) and test/holdout set (2019) to be used once for evaluation after finetuning the models.
 <br>
@@ -96,7 +96,7 @@ Preventing data leakage, when information from evaluation data unintentionally "
 2) Next, the 2015-2018 training set was split again along an 80/20 ratio. The new reduced train set was used for the bulk of modeling and cross validation, while the 20% “pure” validation set was set aside for limited use in evaluation. 
 <br>
 <br> 
-3) As we developed our models, each was cross-validated using a sliding time-series split cross-validation design illustrated here.
+3) As we developed our models, each was cross-validated using a sliding time-series split cross-validation design.
 <br>
 <br>
 <img src="images/261_cross_validation.png" width="400"/>
@@ -117,12 +117,12 @@ Integrating the data layering and pipeline diagrams demonstrates the alignment b
 #### Scaling Considerations
 Given the size of the data and our limited compute budget of $500 for the project, we also carefully tracked the efficiency of our models via their runtimes and configurations as we scaled up from working with smaller subsets of the data. Notably, the random forest model scaled the most effectively as we iterated from smaller subsets of training data to the full 4-year scope, while the MLP was less efficient. 
 <br>
+<br>
 <img src="images/261_config_runtime.png" width="350"/>
 <br>
 <br>
 
 #### Modeling Details: Multilayer Perceptron
-<br>
 To develop the multilayer perceptron model, I selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, I experimented with four distinct network architectures. 
 <br>
 <img src="images/261_mlp_table.png?raw=true"/>
@@ -142,15 +142,15 @@ To evaluate model performance, we chose to measure precision at a threshold of 8
 <br>
 
 #### Results
-<img src="images/261_model_eval_plot.png?raw=true"/>
+<img src="images/261_model_eval_plot.png", width="400"/>
 <br>
-<img src="images/261_model_eval_table.png?raw=true"/>
+<img src="images/261_model_eval_table.png", width="300"/>
 <br>
 <br>
 With a precision value of 27.5% at 80% recall, the random forest model marginally outperformed the logistic regression, MLP, and baseline models. In other words, the random forest performance means that (1) given that we are correctly identifying at least 80% of all delays, (2) we are also correctly classifying 27.5% of those true delays as delays (and conversely, 72.5% of non-delays as delays). 
 <br>
 <br>
-As a final modeling step, we also developed an ensemble model that combined the logistic regression, random forest, and MLP predictions using majority voting with weighted votes. This pipeline was a result of fine-tuning the hyperparameters within each respective model, such as numTrees and maxDepth in Random Forest, and included all engineered features with demonstrated contributions to the earlier models. Despite these efforts, the ensemble model showed negligible improvement to the random forest.
+As a final modeling step, we also developed an ensemble model that combined the logistic regression, random forest, and MLP predictions using majority voting with weighted votes. This pipeline was a result of fine-tuning the hyperparameters within each respective model, such as numTrees and maxDepth in Random Forest, and included all engineered features with demonstrated contributions to the earlier models. Despite these efforts, the ensemble model showed negligible improvement over the random forest.
 <br>
 <br>
 
@@ -162,6 +162,7 @@ The graph below shows the distribution of model results for the subsets of delay
 <br>
 Given those distinctions, it's possible that redefining the delay threshold to a more moderate 30 minutes or perhaps adopting a multi-class classification approach would yeild better performance. On the other hand, many flights departing ahead of schedule are also labeled "delayed" by the model. This might be an indication that the model finds flights that are unusual in general, rather than flights that are specifically delayed.
 <br>
+#### Next Steps
 <br>Beyond the scope of the project, it would be valuable to dedicate additional time to experimeting with new features that might better capture the nuances of the delay factors, such as graph-based variables that reflect the temporal-spatial dimensions of flight congestion. In addition, determining a strategy for including cancelled flights in the models might have a meaningful payoff in the utility of the predictions. 
 <br>
 <br>
