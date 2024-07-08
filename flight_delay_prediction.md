@@ -73,14 +73,12 @@ Given the high dimensionality of the data and the imperative to guard compute ef
 <br>
 <br>
 ### Modeling Pipeline
-<br>
 The figure below provides an overview of our modeling pipeline. First, we devised a simple, intuitive baseline model computed as the mean delay at a flight’s origin airport between 4 and 2 hours prior to takeoff. We then built, trained, and evaluated logistic regression, random forest, and multilayer perceptron (MLP) models for comparison. 
 <br>
 <img src="images/261_model_pipeline_only.png?raw=true"/>
 <br>
 <br>
 #### Time Series Splits & Cross Validation
-<br>
 Preventing data leakage, when information from evaluation data "leaks" into model training, was a major focus in designing our pipeline. By taking pains to exclude future information from predictions made at earlier time points, our objective was to prevent misleading or inflated performance in our models. To this end, we designed our pipeline with layers of evaluation data, including a cross-validation design suitable for time series data, to minimize potential data leakage.
 <br>
 <img src="images/261_model_pipeline_splits_only.png" width="500"/>
@@ -92,7 +90,7 @@ Next, the 2015-2018 training set was split again along an 80/20 ratio. The new r
 <br>
 <br> 
 As we developed our models, each was cross-validated using the sliding time-series split cross-validation design illustrated here. <br>
-<img src="images/261_cross_validation.png" width="300"/>
+<img src="images/261_cross_validation.png" width="400"/>
 <br>
 <br>
 After building confidence in our cross-validated models, we evaluated them against our “pure” validation dataset. 
@@ -108,9 +106,9 @@ Integrating the data layering and pipeline diagrams demonstrates how these stage
 <br>
 
 #### Scaling Considerations
-Given the size of the data and our limited compute budget for the project, we also carefully tracked the efficiency of our models via their runtimes and configurations. Notably, the random forest model scaled the most effectively as we iterated from smaller subsets of training data to the full 4-year scope. 
+Given the size of the data and our limited compute budget for the project, we also carefully tracked the efficiency of our models via their runtimes and configurations as we scaled up from working with smaller subsets of the data. Notably, the random forest model scaled the most effectively as we iterated from smaller subsets of training data to the full 4-year scope, while the MLP was less efficient. 
 <br>
-<img src="images/261_config_runtime.png?raw=true"/>
+<img src="images/261_config_runtime.png" width="400"/>
 <br>
 <br>
 
