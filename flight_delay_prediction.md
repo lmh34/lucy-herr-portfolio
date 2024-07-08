@@ -74,26 +74,34 @@ Given the high dimensionality of the data and the imperative to guard compute ef
 <br>
 ### Modeling Pipeline
 <br>
-The figure below provides an overview of our modeling pipeline. First, we devised a simple, intuitive baseline model computed as the mean delay at the flight’s origin airport between 4 and 2 hours prior to takeoff. We then built, trained, and evaluated logistic regression, random forest, and multilayer perceptron (MLP) models for comparison. 
+The figure below provides an overview of our modeling pipeline. First, we devised a simple, intuitive baseline model computed as the mean delay at a flight’s origin airport between 4 and 2 hours prior to takeoff. We then built, trained, and evaluated logistic regression, random forest, and multilayer perceptron (MLP) models for comparison. 
 <br>
 <img src="images/261_model_pipeline_only.png?raw=true"/>
 <br>
 <br>
 #### Time Series Splits & Cross Validation
 <br>
-Preventing data leakage, or information from an evaluation dataset "leaking" into the training process, was a major challenge in designing our pipeline. By taking pains to exclude future information from predictions made for earlier time points, our objective was to prevent misleading or inflated performances in our models. We designed our pipeline with layers of evaluation data, including a cross-validation design suitable for time series data, to minimize potential data leakage.
+Preventing data leakage, when information from evaluation data "leaks" into model training, was a major focus in designing our pipeline. By taking pains to exclude future information from predictions made at earlier time points, our objective was to prevent misleading or inflated performance in our models. To this end, we designed our pipeline with layers of evaluation data, including a cross-validation design suitable for time series data, to minimize potential data leakage.
 <br>
-<img src="images/261_model_pipeline_splits_only.png?raw=true"/>
+<img src="images/261_model_pipeline_splits_only.png" width="500"/>
 <br>
-1. The full, 5-year data was split into a training set (2015-2018) and test/holdout set (2019) to be used once for evaluation after finetuning the models.<br>
-2. The 2015-2018 training set was then further split along an 80/20 ratio. The new reduced train set was used for the bulk of modeling and cross validation, while the 20% “pure” validation set was set aside for limited use in evaluation. <br>
-3. All models were cross-validated using a sliding time-series split cross-validation design. The diagram below illustrates this technique. <br>
-<img src="images/261_cross_validation.png?raw=true"/>
+First, the full (5-year) dataset was split into a training set (2015-2018) and test/holdout set (2019) to be used once for evaluation after finetuning the models.
 <br>
-4. After building confidence in our cross-validated models, we evaluated them against our “pure” validation dataset. <br>
-5. After iterating through the cross-validation and pure validation sets, we selected our final model pipeline and evaluated it against the test/holdout dataset.  
 <br>
-Integrating the data layering and pipeline diagrams gives us the full picture of how these stages fit together. 
+Next, the 2015-2018 training set was split again along an 80/20 ratio. The new reduced train set was used for the bulk of modeling and cross validation, while the 20% “pure” validation set was set aside for limited use in evaluation. 
+<br>
+<br> 
+As we developed our models, each was cross-validated using the sliding time-series split cross-validation design illustrated here. <br>
+<img src="images/261_cross_validation.png" width="300"/>
+<br>
+<br>
+After building confidence in our cross-validated models, we evaluated them against our “pure” validation dataset. 
+<br>
+<br>
+Finally, after iterating through the cross-validation and pure validation sets, we selected our final model pipeline and evaluated it against the test/holdout dataset.  
+<br>
+<br>
+Integrating the data layering and pipeline diagrams demonstrates how these stages fit together. 
 <br>
 <img src="images/261_model_pipeline_full.png?raw=true"/>
 <br>
@@ -105,6 +113,7 @@ Given the size of the data and our limited compute budget for the project, we al
 <img src="images/261_config_runtime.png?raw=true"/>
 <br>
 <br>
+
 #### Modeling Details: Multilayer Perceptron
 <br>
 To develop the multilayer perceptron model, we selected the subset of numeric features with at least moderate importance values across multiple rounds of the decision tree modeling and logistic regression as input. Following data preprocessing, we experimented with the four distinct network architectures detailed in the table below.
@@ -117,11 +126,14 @@ Ultimately, modifications to the network architectures translated only to minima
 <img src="images/261_mlp_diagram.png?raw=true"/>
 <br>
 <br>
+
 ### Model Evaluation 
+
 #### Performance Metric 
 To evaluate model performance, we chose to measure precision at a threshold of 80% recall to reflect the relative higher cost of false negative delay predictions. This prioritizing of recall enabled us to ensure that the insights we produce would be actionable in responding to flight delay mitigation. We therefore thresholded our predictions such that the resulting recall is approximately 80%, and models are evaluated based on associated precision value at that threshold. 
 <br>
 <br>
+
 #### Results
 <img src="images/261_model_eval.png?raw=true"/>
 <br>
@@ -130,6 +142,7 @@ With a precision value of 27.5% at 80% recall, the random forest model slightly 
 We also subsequently developed an ensemble model combining the logistic regression, random forest, and MLP predictions using majority voting with weighted votes. This pipeline was a result of fine-tuning the hyperparameters within each respective model, such as numTrees and maxDepth in Random Forest, and included engineered features (e.g. average delay at the origin airport, hourly precipitation, etc.). This final model ultimately outperformed the previous models, with marginal improvement. 
 <br>
 <br>
+
 #### Results Analysis 
 The graph below shows the distributions of model results for the subsets of delayed and on time predictions. Notably, longer delays indicate higher chances of being predicted as delayed. This demonstrates that the model does detect some important patterns predictive of a delay. In fact, for flights with the delay significantly above 15, the majority are labeled as delayed. 
 <br>
@@ -138,6 +151,7 @@ The graph below shows the distributions of model results for the subsets of dela
 Given those distinctions, it's possible that adjusting the delay threshold to a more moderate 30 minutes or even taking a multi-class classifiation approach multi would help with performance. On the other hand, many flights departing ahead of schedule are also labeled "delayed" by the model. This might be an indication that the model finds flights that are unusual in general, rather than flights that are specifically delayed.
 <br>
 <br>
+
 ### Conclusion 
 Proactive delay management through predictive analytics translates to enhanced operational efficiency. Accurate delay predictions facilitate proactive measures, including optimized crew scheduling, reduced fuel wastage, and avoidance of penalties related to customer compensation for delays, thus reducing inefficiencies that lead to negative financial impact.
 <br>
