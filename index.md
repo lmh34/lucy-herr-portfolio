@@ -72,7 +72,6 @@ Which state-of-the-art NLP models are the most effective solutions for detecting
 <br>
 Can we predict pet adoption rates using adoption profile text, image, and sentiment data? This Applied Machine Learning project used XGBoost, neural networks, and Transformers architectures to classify predicted adoption rates to advise shelters and adoption agencies.   
 <br>
-<br>
 [Project Deck](/pdf/207_final_presentation.pdf)
 <br>
 <a href="https://github.com/lmh34/mids-207-final-project-summer23-Rueda-Sambrailo-Herr-Liu-Kuehl">Project GitHub Repo</a>
