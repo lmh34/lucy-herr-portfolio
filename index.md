@@ -44,7 +44,7 @@ Can flight delays be predicted in advance of their scheduled departure times? Th
 [NLP: Automated Detection of Personal Identifiable Data in Unstructured Text](/pdf/sample_presentation.pdf)
 <br>
 <br>
-<img src="images/266_bio_diagram.png" width="350"/>
+<img src="images/266_bio_diagram.png" width="400"/>
 <br>
 <img src="images/266_spacy_cm.png" width="350"/>
 <br>
