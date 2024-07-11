@@ -16,6 +16,8 @@ The devastating impacts of the fentanyl epidemic have skyrocketed over recent ye
 Sentanyl is the first publicly available tool for localized fentanyl overdose forecasting, generating estimates within +/-1 death per 100K population on average. Public health stakeholders can use Sentanyl’s dashboard to leverage these novel insights, optimize future resource allocation, and, ultimately, save lives.
 <br>
 <br>
+<a href="https://github.com/lmh34/ucb_mids_capstone_spr24">Project Website</a>
+<br>
 [Project Deck](/pdf/capstone_final_presentation.pdf)
 <br> 
 <a href="https://github.com/lmh34/ucb_mids_capstone_spr24">Project GitHub Repo</a>
@@ -33,7 +35,7 @@ Sentanyl is the first publicly available tool for localized fentanyl overdose fo
 Can flight delays be predicted in advance of their scheduled departure times? This Machine Learning at Scale project used Spark, Databricks, and 5 years of U.S. flight and weather data to predict flight delays of at least 15 minutes at 2 hours in advance of scheduled departure.
 <br>
 <br>
-[Project Deck](/pdf/.pdf)
+[Project Page](/flight_delay_prediction)
 <br>
 <a href="https://github.com/lmh34/team_5_3">Project GitHub Repo</a>
 <br>
@@ -41,15 +43,16 @@ Can flight delays be predicted in advance of their scheduled departure times? Th
 
 
 ---
-[NLP: Automated Detection of Personal Identifiable Data in Unstructured Text](/pdf/sample_presentation.pdf)
+[NLP: Automated Detection of Personal Identifiable Data in Unstructured Text](/pdf/266_FP_Presentation_v2.pdf)
 <br>
 <br>
 <img src="images/266_bio_diagram.png" width="400"/>
 <br>
 <img src="images/266_spacy_cm.png" width="350"/>
 <br>
-Which state-of-the-art NLP (NER) models are the most effective solutions for detecting sensitive user data in unstructured text? This natural language processing project trained SpaCy, BERT, deBERTa, and bi-LSTM models using Tensorflow/Keras to perform token classification of personal identifiable information (PII) in a large student essay dataset.
+Which state-of-the-art NLP models are the most effective solutions for detecting sensitive user data in unstructured text? This natural language processing project trained SpaCy, BERT, deBERTa, and bi-LSTM models using Tensorflow/Keras to perform token classification of personal identifiable information (PII) in a large student essay dataset.
 <br>
+[Project Deck](pdf/266_FP_Presentation_v2.pdf)
 <br>
 <a href="https://github.com/lmh34/266_NLP_final_project">Project GitHub Repo</a>
 <br>
@@ -68,6 +71,8 @@ Which state-of-the-art NLP (NER) models are the most effective solutions for det
 <br>
 Can we predict pet adoption rates using adoption profile text, image, and sentiment data? This Applied Machine Learning project used XGBoost, neural networks, and Transformers architectures to classify predicted adoption rates to advise shelters and adoption agencies.   
 <br>
+<br>
+[Project Deck](/pdf/207_final_presentation.pdf)
 <br>
 <a href="https://github.com/lmh34/mids-207-final-project-summer23-Rueda-Sambrailo-Herr-Liu-Kuehl">Project GitHub Repo</a>
 <br>
