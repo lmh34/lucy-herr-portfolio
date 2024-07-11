@@ -44,8 +44,9 @@ Can flight delays be predicted in advance of their scheduled departure times? Th
 [NLP: Automated Detection of Personal Identifiable Data in Unstructured Text](/pdf/sample_presentation.pdf)
 <br>
 <br>
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<img src="images/266_bio_diagram.png?raw=true"/>
 <br>
+<img src="images/266_spacy_cm.png?raw=true"/>
 <br>
 Which state-of-the-art NLP (NER) models are the most effective solutions for detecting sensitive user data in unstructured text? This natural language processing project trained SpaCy, BERT, deBERTa, and bi-LSTM models using Tensorflow/Keras to perform token classification of personal identifiable information (PII) in a large student essay dataset.
 <br>
@@ -59,13 +60,12 @@ Which state-of-the-art NLP (NER) models are the most effective solutions for det
 [Applied Machine Learning: Predicting Pet Adoption Rates with Multimodal Data](/pdf/207_final_presentation.pdf)
 <br>
 <br>
-<img src="images/207_pipeline.png?raw=true"/>
-<br>
 <img src="images/207_modeling_approach.png?raw=true"/>
 <br>
 <img src="images/207_xgb_params.png?raw=true"/>
 <br>
 <img src="images/207_rescuer_eda.png?raw=true"/>
+<br>
 Can we predict pet adoption rates using adoption profile text, image, and sentiment data? This Applied Machine Learning project used XGBoost, neural networks, and Transformers architectures to classify predicted adoption rates to advise shelters and adoption agencies.   
 <br>
 <br>
@@ -96,7 +96,7 @@ Does a paid Google SEO ad campaign with wellness and lifestyle-oriented messagin
 <img src="images/205_locker_map.png?raw=true"/>
 <br>
 <br>
-This data engineering case study addressed integrating new technologies into a client company’s platform for expanding service locations, meal delivery, and customer base in the Bay Area. We used graph algorithms with Neo4J, MongoDB, and Redis to determine optimal delivery locations and routes and architect flexible, scalable database solutions. 
+This data engineering case study addressed integrating new technologies into a client company’s platform for expanding service locations, meal delivery, and customer base in the Bay Area. We used graph algorithms with Neo4J, MongoDB, and Redis to determine optimal delivery locations and routes and architect scalable database solutions. 
 <br>
 <br>
 
