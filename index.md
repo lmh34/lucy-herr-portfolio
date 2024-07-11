@@ -52,6 +52,7 @@ Can flight delays be predicted in advance of their scheduled departure times? Th
 <br>
 Which state-of-the-art NLP models are the most effective solutions for detecting sensitive user data in unstructured text? This natural language processing project trained SpaCy, BERT, deBERTa, and bi-LSTM models using Tensorflow/Keras to perform token classification of personal identifiable information (PII) in a large student essay dataset.
 <br>
+<br>
 [Project Deck](pdf/266_FP_Presentation_v2.pdf)
 <br>
 <a href="https://github.com/lmh34/266_NLP_final_project">Project GitHub Repo</a>
