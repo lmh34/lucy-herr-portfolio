@@ -44,9 +44,9 @@ Can flight delays be predicted in advance of their scheduled departure times? Th
 [NLP: Automated Detection of Personal Identifiable Data in Unstructured Text](/pdf/sample_presentation.pdf)
 <br>
 <br>
-<img src="images/266_bio_diagram.png?raw=true"/>
+<img src="images/266_bio_diagram.png" width="350"/>
 <br>
-<img src="images/266_spacy_cm.png?raw=true"/>
+<img src="images/266_spacy_cm.png" width="300"/>
 <br>
 Which state-of-the-art NLP (NER) models are the most effective solutions for detecting sensitive user data in unstructured text? This natural language processing project trained SpaCy, BERT, deBERTa, and bi-LSTM models using Tensorflow/Keras to perform token classification of personal identifiable information (PII) in a large student essay dataset.
 <br>
