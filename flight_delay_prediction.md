@@ -1,5 +1,9 @@
 ## Machine Learning at Scale: U.S. Flight Delay Prediction with Databricks and Spark
 <br>
+<br>
+<img src="images/261_flight_map_v2.png?raw=true"/>
+<br>
+<br>
 
 ### Overview
 **Can we predict which flights will be delayed two hours before their scheduled departure times?**
