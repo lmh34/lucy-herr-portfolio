@@ -9,7 +9,7 @@
 <br>
 <img src="images/sentanyl_dashboard_image.png?raw=true"/>
 <br>
-<img src="images/sentanyl_feature_overview.png?raw=true"/>
+<img src="images/sentanyl_features.png?raw=true"/>
 <br>
 <br>
 The devastating impacts of the fentanyl epidemic have skyrocketed over recent years: in California alone, this potent synthetic opioid was responsible for over 10,000 deaths last year. In the ongoing battle to prevent fatal overdoses, proactive resource mobilization makes the difference between life and death.
@@ -30,8 +30,6 @@ Sentanyl is the first publicly available tool for localized fentanyl overdose fo
 ---
 [Machine Learning at Scale: U.S. Flight Delay Prediction with Databricks and Spark](/flight_delay_prediction)
 <br>
-<br>
-<img src="images/261_flight_map.png?raw=true"/>
 <br>
 <img src="images/261_flight_map_v2.png?raw=true"/>
 <br>

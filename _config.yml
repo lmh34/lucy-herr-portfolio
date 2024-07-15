@@ -1,5 +1,5 @@
 title: Lucy Herr # your name (or website title) here
-logo: <img src="images/261_results_main.png?raw=true"/> # your photo (or logo) here
+logo: "/images/portfolio_school_logos.png" "width=200" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
   Data scientist completing an M.S. in Information & Data Science from U.C. Berkeley (August 2024) with an M.Ed. in Learning Sciences from the University of Washington (2019). Previously at Katch Data and the U.W. Center for Evaluation and Research in STEM Equity.
   <br><br>
