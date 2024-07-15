@@ -9,6 +9,8 @@
 <br>
 <img src="images/sentanyl_dashboard_image.png?raw=true"/>
 <br>
+<img src="images/sentanyl_feature_overview.png?raw=true"/>
+<br>
 <br>
 The devastating impacts of the fentanyl epidemic have skyrocketed over recent years: in California alone, this potent synthetic opioid was responsible for over 10,000 deaths last year. In the ongoing battle to prevent fatal overdoses, proactive resource mobilization makes the difference between life and death.
 <br>
@@ -26,13 +28,17 @@ Sentanyl is the first publicly available tool for localized fentanyl overdose fo
 
 
 ---
-[Machine Learning at Scale: Flight Delay Prediction](/flight_delay_prediction)
+[Machine Learning at Scale: U.S. Flight Delay Prediction with Databricks and Spark](/flight_delay_prediction)
 <br>
+<br>
+<img src="images/261_flight_map.png?raw=true"/>
+<br>
+<img src="images/261_flight_map_v2.png?raw=true"/>
 <br>
 <img src="images/261_results_main.png?raw=true"/>
 <br>
 <br>
-Can flight delays be predicted in advance of their scheduled departure times? This Machine Learning at Scale project used Spark, Databricks, and 5 years of U.S. flight and weather data to predict flight delays of at least 15 minutes at 2 hours in advance of scheduled departure.
+Can flight delays be predicted in advance of their scheduled departures? This Machine Learning at Scale project used Spark, Databricks, and 5 years of U.S. flight and weather data to predict flight delays of at least 15 minutes at 2 hours in advance of scheduled departure.
 <br>
 <br>
 [Project Page](/flight_delay_prediction)
@@ -46,7 +52,7 @@ Can flight delays be predicted in advance of their scheduled departure times? Th
 [NLP: Automated Detection of Personal Identifiable Data in Unstructured Text](/pdf/266_FP_Presentation_v2.pdf)
 <br>
 <br>
-<img src="images/266_bio_diagram.png" width="400"/>
+<img src="images/266_bio_diagram.png" width="450"/>
 <br>
 <img src="images/266_spacy_cm.png" width="350"/>
 <br>

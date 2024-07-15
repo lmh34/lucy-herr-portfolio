@@ -1,4 +1,4 @@
-## Machine Learning at Scale: Flight Delay Prediction
+## Machine Learning at Scale: U.S. Flight Delay Prediction with Databricks and Spark
 <br>
 
 ### Overview
@@ -14,10 +14,8 @@ Our objectives in this project were to:<br>
 <br>
 
 ### Background
-Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1].
-
-[National Oceanic and Atmospheric Administration NCEI](https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data).
- At an estimated cost of $101.18 per minute of delay in aircraft block flight time, longer delays mean exacerbated costs [2]. Actionable predictions and insights into the sources of delays can empower proactive, data-driven strategies to minimize the disruptions caused by delays, yielding improved customer satisfaction and reduced operational costs.
+Optimization strategies for mitigating flight delays are crucial to the airline industry: timely flight performance is a key competitive factor, as high volumes of delayed flights increase operational costs and reduce customer satisfaction. On average, over 20% of U.S. flights are delayed by at least 15 minutes, translating to billions of dollars in costs for airlines [1](https://www.sciencedirect.com/science/article/abs/pii/S1366554520300077). 
+ At an estimated cost of $101.18 per minute of delay in aircraft block flight time, longer delays mean exacerbated costs [2](https://www.airlines.org/dataset/u-s-passenger-carrier-delay-costs/). Actionable predictions and insights into the sources of delays can empower proactive, data-driven strategies to minimize the disruptions caused by delays, yielding improved customer satisfaction and reduced operational costs.
 <br>
 <br>
 
@@ -25,7 +23,7 @@ Optimization strategies for mitigating flight delays are crucial to the airline 
 Flight data was sourced from the [Transtats Database](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ) maintained by the U.S. Department of Transportation. The full dataset contains on-time performance data for 31,746,841 U.S. passenger flights between 2015 and 2021, with 109 total features. Key variables in EDA and modeling included flight and carrier (airline) identifiers, airport location information, and delay time and source attributes. 
 <br>
 <br>
-Weather data was sourced from the [National Oceanic and Atmospheric Administration NCEI](https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data). This data consisted of hourly, daily and monthly weather observation summaries.  Below is a table showing the general sections of features, some examples from each, and our understanding of those features.
+Weather data was sourced from the [National Oceanic and Atmospheric Administration](https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data). This data consisted of hourly, daily and monthly weather observation summaries.
 <br>
 <img src="images/261_dataset_overview.png?raw=true"/>
 <br>
@@ -41,7 +39,7 @@ In the early stages of working with our data sources, one of the most important 
 <br>
 
 ### Data Preprocessing
-Making the optimal use of the original data in our models required extensive data preprocessing and exploratory analysis, which is illustrated in the diagram below. 
+Making the optimal use of the original data in our models required extensive data preprocessing and exploratory analysis, which is outlined in the diagram below. 
 <br>
 <img src="images/261_eda_overview.png?raw=true"/>
 <br>
@@ -61,7 +59,7 @@ We also noted the variation in average delay length by airline carrier, which pl
 <br>
 #### Feature Engineering
 
-Experimentation with feature engineering was essential to enhancing our ultimate model performance. The table below illustrates some of our key engineered predictors related to factors identified in air transportation research, such as severe weather events and increased airport congestion ([1](https://ieeexplore.ieee.org/document/9795721), [2](https://www.sciencedirect.com/science/article/abs/pii/S0969699720305755), [3](https://pilotinstitute.com/wind-speed-airplane/#:~:text=The%20only%20thing%20a%20strong,flight%20takes%20longer%20than%20expected),  [4](https://pilotinstitute.com/can-planes-fly-in-rain/),  [5](https://www.cnn.com/travel/article/climate-change-airplane-takeoff-scn/index.html#:~:text=%E2%80%9CLift%20depends%20on%20several%20factors,of%20temperature%20rise%2C%20Williams%20said), [6](https://airadvisor.com/en/blog/is-it-safe-to-fly-a-plane-in-a-thunderstorm#:~:text=Can%20a%20plane%20take%20off,Fly%20With%20an%20Ear%20Infection%3F), [7](https://www.physlink.com/education/askexperts/ae652.com)). 
+Experimentation with feature engineering was essential to enhancing our ultimate model performance. The table below illustrates some of our key engineered predictors related to factors identified in air transportation research, such as severe weather events and increased airport congestion ([3](https://ieeexplore.ieee.org/document/9795721), [4](https://www.sciencedirect.com/science/article/abs/pii/S0969699720305755), [5](https://pilotinstitute.com/wind-speed-airplane/#:~:text=The%20only%20thing%20a%20strong,flight%20takes%20longer%20than%20expected),  [6](https://pilotinstitute.com/can-planes-fly-in-rain/),  [7](https://www.cnn.com/travel/article/climate-change-airplane-takeoff-scn/index.html#:~:text=%E2%80%9CLift%20depends%20on%20several%20factors,of%20temperature%20rise%2C%20Williams%20said), [8](https://airadvisor.com/en/blog/is-it-safe-to-fly-a-plane-in-a-thunderstorm#:~:text=Can%20a%20plane%20take%20off,Fly%20With%20an%20Ear%20Infection%3F), [9](https://www.physlink.com/education/askexperts/ae652.com)). 
 <br>
 <img src="images/261_fe_table.png?raw=true"/>
 <br>
@@ -142,9 +140,9 @@ To evaluate model performance, we chose to measure precision at a threshold of 8
 <br>
 
 #### Results
-<img src="images/261_model_eval_plot.png", width="400"/>
+<img src="images/261_model_eval_plot.png" width="400"/>
 <br>
-<img src="images/261_model_eval_table.png", width="300"/>
+<img src="images/261_model_eval_table.png" width="300"/>
 <br>
 <br>
 With a precision value of 27.5% at 80% recall, the random forest model marginally outperformed the logistic regression, MLP, and baseline models. In other words, the random forest performance means that (1) given that we are correctly identifying at least 80% of all delays, (2) we are also correctly classifying 27.5% of those true delays as delays (and conversely, 72.5% of non-delays as delays). 
